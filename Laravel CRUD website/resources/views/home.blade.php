@@ -12,6 +12,9 @@
     @csrf
         <button>Logout</button>
     </form>
+    <form action = "/profile" method = "GET">
+        <button>Profile</button>
+    </form>
     <div style = "border: 3px solid black;">
         <h2>Create a New Post</h2>
         <form action = "/create-post" method = "POST">
@@ -23,7 +26,7 @@
     </div>
 
     <div style = "border: 3px solid black;">
-        <h2>All Posts</h2>
+        <h2>All Blog Posts</h2>
         @foreach($posts as $post)
         <div style = "background-color: gray; pading: 10px; margin: 10px;">
             <h3>{{ $post->title}} by {{$post->getUser->name}}</h3>
@@ -38,6 +41,10 @@
             </form>   
     </div>
     @endforeach
+    <div>
+    {{$posts->links()}}
+    </div>
+    
 
     @else
     <div style = "border: 3px solid black;">
